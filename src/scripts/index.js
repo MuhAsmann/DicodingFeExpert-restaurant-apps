@@ -1,23 +1,12 @@
 import 'regenerator-runtime';
 import '../styles/main.css';
+import App from './views/app';
 
-// burger menu
-const menu = document.querySelector('#menu');
-const jumbotron = document.querySelector('.jumbotron');
-const main = document.querySelector('main');
-const navList = document.querySelector('.navlist');
-
-menu.addEventListener('click', function (event) {
-    navList.classList.toggle('open');
-    event.stopPropagation();
-});
-
-jumbotron.addEventListener('click', function () {
-    navList.classList.remove('open');
-});
-
-main.addEventListener('click', function () {
-    navList.classList.remove('open');
+const app = new App({
+  button: document.querySelector('#menu'),
+  drawer: document.querySelector('.navlist'),
+  content: document.querySelector('main'),
+  jumbotron : document.querySelector('.jumbotron'),
 });
 
 import('../DATA.json')
@@ -37,6 +26,7 @@ import('../DATA.json')
       </div>
     `)
     .join('');
+  console.log(jsonData.restaurants)
 
   document.querySelector('#isi').innerHTML = dataList;
 });
