@@ -9,6 +9,14 @@ const app = new App({
   jumbotron : document.querySelector('.jumbotron'),
 });
 
+window.addEventListener('hashchange', () => {
+  app.renderPage();
+});
+ 
+window.addEventListener('load', () => {
+  app.renderPage();
+});
+
 import('../DATA.json')
 .then(({default: jsonData}) => {
   let dataList = jsonData.restaurants
