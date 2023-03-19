@@ -26,8 +26,7 @@ const createTamplateItem  = (restaurant) => `
 `;
 
 const createTamplateItemDetail = restaurant => `
-  <h1>Detail Resto</h1>
-  <h2 class="restaurant__title">${restaurant.name}</h2>
+  <h3 class="restaurant__title">${restaurant.name}</h3>
   <img class="restaurant__poster" src="${CONFIG.BASE_IMAGE_URL + restaurant.pictureId}" alt="${restaurant.title}" />
   <div class="restaurant__info">
     <h3>Information</h3>
@@ -42,7 +41,7 @@ const createTamplateItemDetail = restaurant => `
     <h4>Deskripsi</h4>
     <p>${restaurant.description}</p>
   </div>
-  <div>
+  <div class="restaurant__reviews">
     <h3>Riviews</h3>
     <ul>
       ${reviewCustomer(restaurant)}
@@ -50,4 +49,16 @@ const createTamplateItemDetail = restaurant => `
   </div>
 `;
 
-export {createTamplateItem, createTamplateItemDetail};
+const createLikeButtonTemplate = () => `
+  <button aria-label="like this movie" id="likeButton" class="like">
+     <i class="fa fa-heart-o" aria-hidden="true"></i>
+  </button>
+`;
+ 
+const createLikedButtonTemplate = () => `
+  <button aria-label="unlike this movie" id="likeButton" class="like">
+    <i class="fa fa-heart" aria-hidden="true"></i>
+  </button>
+`;
+
+export {createTamplateItem, createTamplateItemDetail, createLikeButtonTemplate, createLikedButtonTemplate};
