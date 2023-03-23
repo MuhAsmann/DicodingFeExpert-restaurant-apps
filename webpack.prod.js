@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const common = require('./webpack.common');
 const { merge } = require('webpack-merge');
 

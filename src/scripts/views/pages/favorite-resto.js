@@ -18,6 +18,6 @@ const FavoriteResto = {
       restaurantsContainer.innerHTML += createTamplateItem(restaurant);
     });
   },
-};
+};  
  
 export default FavoriteResto;

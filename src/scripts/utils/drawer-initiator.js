@@ -1,6 +1,7 @@
 const DrawerInitiator = {
   init({ button, drawer, content, jumbotron }) {
     button.addEventListener('click', (event) => {
+      event.preventDefault()
       this._toggleDrawer(event, drawer);
     });
  
