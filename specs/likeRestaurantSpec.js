@@ -2,7 +2,7 @@
 import RestaurantFavorite from "../src/scripts/data/restourant-favorite";
 import * as TestFactories from './helpers/testFactories';
 
-describe('Liking A Movie', () => {
+describe('Liking A Restaurant', () => {
    const addLikeButtonContainer = () => {
     document.body.innerHTML = '<div id="likeButtonContainer"></div>';
   };
@@ -11,21 +11,21 @@ describe('Liking A Movie', () => {
     addLikeButtonContainer();
   });
 
-  it('should show the like button when the movie has not been liked before', async () => {
+  it('should show the like button when the restaurant has not been liked before', async () => {
  
     await TestFactories.createLikeButtonPresenterWitRestaurant({id: 1});
  
-    expect(document.querySelector('[aria-label="like this movie"]'))
+    expect(document.querySelector('[aria-label="like this restaurant"]'))
         .toBeTruthy();
   });
 
-  it('should not show the unlike button when the movie has not been liked before', async () => {
+  it('should not show the unlike button when the restaurant has not been liked before', async () => {
     await TestFactories.createLikeButtonPresenterWitRestaurant({id:1});
-    expect(document.querySelector('[aria-label="unlike this movie"]'))
+    expect(document.querySelector('[aria-label="unlike this restaurant"]'))
         .toBeFalsy();
   });
 
-  it('should be able to like the movie', async () => {
+  it('should be able to like the restaurant', async () => {
     
     await TestFactories.createLikeButtonPresenterWitRestaurant({id:1});
 
@@ -36,7 +36,7 @@ describe('Liking A Movie', () => {
     RestaurantFavorite.deleteRestaurant(1);
   });
 
-  it('should not add a movie again when its already liked', async () => {
+  it('should not add a restaurant again when its already liked', async () => {
     await TestFactories.createLikeButtonPresenterWitRestaurant({id:1});
  
     // Tambahkan film dengan ID 1 ke daftar film yang disukai
@@ -50,7 +50,7 @@ describe('Liking A Movie', () => {
     RestaurantFavorite.deleteRestaurant(1);
   });
 
-  it('should not add a movie when it has no id', async () => {
+  it('should not add a restaurant when it has no id', async () => {
     await TestFactories.createLikeButtonPresenterWitRestaurant({});
     document.querySelector('#likeButton').dispatchEvent(new Event('click'));
     expect(await RestaurantFavorite.getAllRestaurant()).toEqual([]);

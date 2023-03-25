@@ -15,7 +15,7 @@ function reviewCustomer(restaurant) {
 
 const createTamplateItem  = (restaurant) => `
     <div class="list_item">
-        <img class="list_item_thumb lazyload" src="${CONFIG.BASE_IMAGE_URL + restaurant.pictureId}" alt="${restaurant.name}" title="${restaurant.name}">
+        <img class="list_item_thumb lazyload" data-src="${CONFIG.BASE_IMAGE_URL + restaurant.pictureId}" alt="${restaurant.name}" title="${restaurant.name}">
         <div class="city">${restaurant.city}</div>
         <div class="list_item_content">
           <p class="list_item_rating">
@@ -52,13 +52,13 @@ const createTamplateItemDetail = restaurant => `
 `;
 
 const createLikeButtonTemplate = () => `
-  <button aria-label="like this movie" id="likeButton" class="like">
+  <button aria-label="like this restaurant" id="likeButton" class="like">
      <i class="fa fa-heart-o" aria-hidden="true"></i>
   </button>
 `;
  
 const createLikedButtonTemplate = () => `
-  <button aria-label="unlike this movie" id="likeButton" class="like">
+  <button aria-label="unlike this restaurant" id="likeButton" class="like">
     <i class="fa fa-heart" aria-hidden="true"></i>
   </button>
 `;
